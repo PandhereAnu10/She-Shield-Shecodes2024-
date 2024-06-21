@@ -1,4 +1,3 @@
-//Viral Science www.youtube.com/c/viralscience  www.viralsciencecreativity.com
 //ESP Camera Artificial Intelligence Face Detection Automatic Door Lock
 #include "esp_camera.h"
 #include <WiFi.h>
