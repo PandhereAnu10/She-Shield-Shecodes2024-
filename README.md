@@ -47,5 +47,5 @@ The Women Safety Wearable Band is an innovative device designed to enhance perso
       - `SoftwareSerial` for serial communication with GSM module
 ### Outcome
 
-<img src="https://github.com/PandhereAnu10/She-Shield-Shecodes2024-/blob/main/WomenSafetyBand.jpeg" alt="Women Safety Band" width="700" height="700">
+<img src="https://github.com/PandhereAnu10/She-Shield-Shecodes2024-/blob/main/WomenSafetyBand.jpeg" alt="Women Safety Band" width="600" height="600">
 
