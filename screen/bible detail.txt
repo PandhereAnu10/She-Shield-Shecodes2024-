@@ -1,0 +1,70 @@
+import React from "react";
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+const SafetyAtWorkScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={24} color="#3D2B2B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Safety at Work</Text>
+        <Ionicons name="shield-checkmark-outline" size={24} color="#3D2B2B" />
+      </View>
+
+      {/* Content */}
+      <ScrollView contentContainerStyle={styles.content}>
+        <Image 
+          source={{ uri: "https://cdn.pixabay.com/photo/2020/07/01/12/58/woman-5359991_960_720.png" }} 
+          style={styles.image} 
+        />
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. Pharetra convallis posuere morbi leo urna molestie at elementum eu.
+        </Text>
+        <Text style={styles.text}>
+          Et tortor consequat id porta nibh venenatis cras sed felis. Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus. Egestas sed sed risus pretium quam vulputate dignissim suspendisse.
+        </Text>
+      </ScrollView>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FBE9D0",
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 20,
+    backgroundColor: "#FBE9D0",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#3D2B2B",
+  },
+  content: {
+    paddingHorizontal: 20,
+    paddingBottom: 40,
+  },
+  image: {
+    width: "100%",
+    height: 200,
+    resizeMode: "contain",
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 14,
+    color: "#3D2B2B",
+    marginBottom: 15,
+    textAlign: "justify",
+  },
+});
+
+export default SafetyAtWorkScreen;

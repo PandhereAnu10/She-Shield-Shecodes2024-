@@ -1,0 +1,161 @@
+import React from 'react';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+const channels = [
+  {
+    id: '1',
+    name: 'Women at Work',
+    emoji: '💼',
+    online: '56/3429',
+    status: 'online',
+    messages: [
+      { user: 'Jenny', text: 'Yeah, I have been thinking about it for a long time...', color: '#FF5A79' },
+      { user: 'Lina', text: 'Hey girls, Wassup!!', color: '#FF5A79' },
+    ],
+  },
+  {
+    id: '2',
+    name: 'School Girls',
+    emoji: '🏫',
+    online: '38/1856',
+    status: 'online',
+    messages: [
+      { user: 'Joanne', text: 'Yeah, I have been thinking about it for a long time...', color: '#FF5A79' },
+      { user: 'Myle', text: 'Hey girls, Wassup!!', color: '#FF5A79' },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Homemakers',
+    emoji: '🏡',
+    online: '75/2951',
+    status: 'women online',
+    messages: [
+      { user: 'Sofie', text: 'Yeah, I have been thinking about it for a long time...', color: '#FF5A79' },
+      { user: 'Eliza', text: 'Hey girls, Wassup!!', color: '#FF5A79' },
+    ],
+  },
+];
+
+const ChannelItem = ({ name, emoji, online, status, messages }) => (
+  <TouchableOpacity style={styles.card}>
+    <Text style={styles.channelTitle}>
+      {name} {emoji}
+    </Text>
+    <Text style={styles.onlineStatus}>
+      <Text style={{ fontSize: 14 }}>🟢</Text> {online} {status}
+    </Text>
+    <Text style={styles.separator}>...</Text>
+
+    {messages.map((msg, index) => (
+      <Text key={index} style={[styles.message, { color: msg.color }]}>
+        {msg.user}: <Text style={{ color: '#4A2E2A' }}>{msg.text}</Text>
+      </Text>
+    ))}
+  </TouchableOpacity>
+);
+
+const ChannelsScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Channels</Text>
+
+      <FlatList
+        data={channels}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <ChannelItem
+            name={item.name}
+            emoji={item.emoji}
+            online={item.online}
+            status={item.status}
+            messages={item.messages}
+          />
+        )}
+        contentContainerStyle={styles.list}
+      />
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="store" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="th-large" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="map" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="book-open" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="user" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBE9D0',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+    marginVertical: 20,
+  },
+  list: {
+    width: '90%',
+  },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 15,
+    marginBottom: 10,
+    borderColor: '#F84F77',
+    borderWidth: 2,
+  },
+  channelTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+  },
+  onlineStatus: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#4A2E2A',
+    marginVertical: 5,
+  },
+  separator: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+    marginVertical: 5,
+  },
+  message: {
+    fontSize: 13,
+    fontWeight: '600',
+    marginTop: 2,
+  },
+  bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#F84F77',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15,
+  },
+  navButton: {
+    padding: 10,
+  },
+});
+
+export default ChannelsScreen;

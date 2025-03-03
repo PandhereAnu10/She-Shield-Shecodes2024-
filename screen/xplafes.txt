@@ -1,0 +1,118 @@
+import React from 'react';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { FontAwesome5, Feather } from '@expo/vector-icons';
+
+const cafes = [
+  { id: '1', name: 'Jennifer Lydia', address: 'Wild West Street, New York' },
+  { id: '2', name: 'Maddie', address: 'Bell Bottom Street, Madison' },
+  { id: '3', name: 'Lawrence', address: 'Caramon Street, Penselvenia' },
+  { id: '4', name: 'Medona S', address: "Baker's Street, London" },
+  { id: '5', name: 'Christina', address: "Schindler's Street, New York" },
+  { id: '6', name: 'Emilia Chan', address: 'Royalty Street, New York' },
+];
+
+const CafeItem = ({ name, address }) => (
+  <TouchableOpacity style={styles.card}>
+    <View style={styles.cardLeft}>
+      <FontAwesome5 name="map-marker-alt" size={20} color="#F84F77" />
+      <View style={styles.cardText}>
+        <Text style={styles.cafeName}>{name}</Text>
+        <Text style={styles.cafeAddress}>{address}</Text>
+      </View>
+    </View>
+    <Feather name="chevron-right" size={24} color="#F84F77" />
+  </TouchableOpacity>
+);
+
+const CafeListScreen = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Xplafés Around You</Text>
+
+      <FlatList
+        data={cafes}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <CafeItem name={item.name} address={item.address} />}
+        contentContainerStyle={styles.list}
+      />
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="store" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="th-large" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="map" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="book-open" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="user" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBE9D0',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+    marginVertical: 20,
+  },
+  list: {
+    width: '90%',
+  },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+    marginBottom: 10,
+    borderColor: '#F84F77',
+    borderWidth: 2,
+    justifyContent: 'space-between',
+  },
+  cardLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  cardText: {
+    marginLeft: 10,
+  },
+  cafeName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#F84F77',
+  },
+  cafeAddress: {
+    fontSize: 12,
+    color: '#4A2E2A',
+  },
+  bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#F84F77',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15,
+  },
+  navButton: {
+    padding: 10,
+  },
+});
+
+export default CafeListScreen;

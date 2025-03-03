@@ -1,0 +1,131 @@
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+
+const ProfileScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Profile Title */}
+      <Text style={styles.title}>Profile</Text>
+
+      {/* Profile Image Section */}
+      <View style={styles.profileContainer}>
+        <Image 
+          source={{ uri: 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png' }} 
+          style={styles.profileImage} 
+        />
+        <TouchableOpacity style={styles.editIcon}>
+          <MaterialIcons name="edit" size={16} color="white" />
+        </TouchableOpacity>
+      </View>
+
+      {/* User Info Section */}
+      <View style={styles.infoContainer}>
+        <Text style={styles.label}>Name</Text>
+        <TextInput style={styles.input} value="shweta mehetre" editable={false} />
+
+        <Text style={styles.label}>Email</Text>
+        <TextInput style={styles.input} value="shwetamehetre@gmail.com" editable={false} />
+      </View>
+
+      {/* Logout Button */}
+      <TouchableOpacity style={styles.logoutButton}>
+        <Text style={styles.logoutText}>Log Out</Text>
+      </TouchableOpacity>
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="store" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="th-large" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="map" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="book-open" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="user" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBE9D0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+    marginBottom: 20,
+  },
+  profileContainer: {
+    position: 'relative',
+    marginBottom: 20,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  editIcon: {
+    position: 'absolute',
+    bottom: 5,
+    right: 5,
+    backgroundColor: '#F84F77',
+    borderRadius: 12,
+    padding: 5,
+  },
+  infoContainer: {
+    width: '80%',
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 14,
+    color: '#4A2E2A',
+    marginBottom: 5,
+  },
+  input: {
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 8,
+    borderColor: '#F84F77',
+    borderWidth: 1,
+    marginBottom: 15,
+  },
+  logoutButton: {
+    backgroundColor: '#F84F77',
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    borderRadius: 8,
+  },
+  logoutText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#F84F77',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15,
+  },
+  navButton: {
+    padding: 10,
+  },
+});
+
+export default ProfileScreen;

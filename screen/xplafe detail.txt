@@ -1,0 +1,105 @@
+import React from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Nearby Xplafé</Text>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} placeholder="Schindler’s Street, New York" />
+        <Ionicons name="location-outline" size={20} color="red" style={styles.icon} />
+      </View>
+      <Text style={styles.label}>Time</Text>
+      <View style={styles.timeContainer}>
+        <View style={styles.timeBox}>
+          <Text style={styles.timeLabel}>From</Text>
+          <DateTimePicker value={new Date()} mode="datetime" display="default" />
+        </View>
+        <View style={styles.timeBox}>
+          <Text style={styles.timeLabel}>To</Text>
+          <DateTimePicker value={new Date()} mode="datetime" display="default" />
+        </View>
+      </View>
+      <Text style={styles.label}>Message</Text>
+      <TextInput
+        style={styles.messageBox}
+        multiline
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum dignissim odio nisi, semper..."
+      />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Contact Her!</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFEDD5",
+    padding: 20,
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    alignSelf: "center",
+    marginBottom: 10,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 10,
+  },
+  input: {
+    flex: 1,
+  },
+  icon: {
+    marginLeft: 5,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 20,
+  },
+  timeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  timeBox: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 10,
+    flex: 0.48,
+  },
+  timeLabel: {
+    fontSize: 14,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  messageBox: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 10,
+    height: 100,
+    marginTop: 10,
+  },
+  button: {
+    backgroundColor: "#FF3B5C",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
+
+export default App;
