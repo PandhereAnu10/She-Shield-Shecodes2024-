@@ -1,5 +1,6 @@
 # She-Shield-Shecodes2024-
 # Women Safety Wearable Band Device
+# Women safety band with integraated software application
 
 ## Introduction
 The Women Safety Wearable Band is an innovative device designed to enhance personal safety for women. It features live video streaming, location tracking, and an SOS alert system. The device is built using an ESP32-CAM for video streaming, a GPS NEO-6M for location tracking, a GSM module for sending SOS alerts, and an Arduino ESP32 for overall control and integration.

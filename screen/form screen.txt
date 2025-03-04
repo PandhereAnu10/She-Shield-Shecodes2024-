@@ -1,0 +1,181 @@
+import React, { useState } from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
+
+const ConnectNearbyScreen = () => {
+  const [dateFrom, setDateFrom] = useState(new Date());
+  const [dateTo, setDateTo] = useState(new Date());
+  const [showFrom, setShowFrom] = useState(false);
+  const [showTo, setShowTo] = useState(false);
+
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={24} color="#3D2B2B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Connect nearby</Text>
+      </View>
+
+      {/* Location Input */}
+      <View style={styles.inputContainer}>
+        <TextInput placeholder="Enter location" style={styles.input} />
+        <TouchableOpacity>
+          <Ionicons name="location-outline" size={20} color="#FF5A79" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Time Selection */}
+      <Text style={styles.label}>Time</Text>
+      <View style={styles.timeContainer}>
+        <View style={styles.timeBox}>
+          <Text style={styles.subLabel}>From</Text>
+          <TouchableOpacity
+            style={styles.dateInput}
+            onPress={() => setShowFrom(true)}
+          >
+            <Ionicons name="calendar-outline" size={20} color="#3D2B2B" />
+          </TouchableOpacity>
+          {showFrom && (
+            <DateTimePicker
+              value={dateFrom}
+              mode="date"
+              display="default"
+              onChange={(event, selectedDate) => {
+                setShowFrom(false);
+                if (selectedDate) setDateFrom(selectedDate);
+              }}
+            />
+          )}
+        </View>
+        <View style={styles.timeBox}>
+          <Text style={styles.subLabel}>To</Text>
+          <TouchableOpacity
+            style={styles.dateInput}
+            onPress={() => setShowTo(true)}
+          >
+            <Ionicons name="calendar-outline" size={20} color="#3D2B2B" />
+          </TouchableOpacity>
+          {showTo && (
+            <DateTimePicker
+              value={dateTo}
+              mode="date"
+              display="default"
+              onChange={(event, selectedDate) => {
+                setShowTo(false);
+                if (selectedDate) setDateTo(selectedDate);
+              }}
+            />
+          )}
+        </View>
+      </View>
+
+      {/* Message Box */}
+      <Text style={styles.label}>Message</Text>
+      <View style={styles.messageBox}>
+        <Text style={styles.messageText}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Condimentum
+          dignissim odio nisi, semper magna et ultricies tempor interdum. A
+          elementum viverra at pulvinar hendrerit id.
+        </Text>
+      </View>
+
+      {/* Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Explafe It!</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FBE9D0",
+    padding: 20,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#3D2B2B",
+    marginLeft: 10,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    height: 40,
+    marginBottom: 15,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  input: {
+    flex: 1,
+    height: 40,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#3D2B2B",
+    marginBottom: 5,
+  },
+  subLabel: {
+    fontSize: 12,
+    color: "#3D2B2B",
+    marginBottom: 5,
+  },
+  timeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 15,
+  },
+  timeBox: {
+    alignItems: "center",
+  },
+  dateInput: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  messageBox: {
+    backgroundColor: "white",
+    padding: 15,
+    borderRadius: 10,
+    minHeight: 100,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    marginBottom: 20,
+  },
+  messageText: {
+    fontSize: 14,
+    color: "#3D2B2B",
+  },
+  button: {
+    backgroundColor: "#FF5A79",
+    paddingVertical: 12,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+  },
+});
+
+export default ConnectNearbyScreen;

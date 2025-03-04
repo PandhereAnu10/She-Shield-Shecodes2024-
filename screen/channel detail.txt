@@ -1,0 +1,129 @@
+import React from "react";
+import { View, Text, TouchableOpacity, FlatList, StyleSheet, TextInput } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+const chatData = [
+  { id: "1", sender: "Nina", message: "Hello. Have you just arrived at the camp? I’m Nina." },
+  { id: "2", sender: "Nelly", message: "My name is Nelly. Nice to meet you." },
+  { id: "3", sender: "Nina", message: "Oh, Ok… Where are you from?" },
+  { id: "4", sender: "Nelly", message: "I’m from Greece, but I’ve lived in this area for a long time. You?" },
+  { id: "5", sender: "Nina", message: "I’m from the USA. I’m here on holidays." },
+  { id: "6", sender: "Nelly", message: "Are you from a big family?" },
+  { id: "7", sender: "Nina", message: "No, there are just five of us- me, my sister, my brother and my parents. What about you?" },
+  { id: "8", sender: "Nelly", message: "I’ve got two sisters." },
+  { id: "9", sender: "Nina", message: "Oh, that’s nice. What do you usually do in your free time? Do you have any hobbies?" },
+  { id: "10", sender: "Nelly", message: "I love hanging out with my friends or stay at home and read a good book. I don’t have a lot of hobbies. I enjoy playing volleyball… What about you?" },
+  { id: "11", sender: "Nina", message: "I love it, too…What’s your favourite subject?" },
+  { id: "12", sender: "Nelly", message: "I like Biology. I love learning about the Environment." },
+  { id: "13", sender: "Nina", message: "Me too. I think we are going to be great friends!" },
+  { id: "14", sender: "Nelly", message: "So do I!" }
+];
+
+const WomenAtWorkScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={24} color="#3D2B2B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Women at Work 👜</Text>
+      </View>
+
+      {/* Chat Messages */}
+      <FlatList
+        data={chatData}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.chatRow}>
+            <Text style={styles.sender}>{item.sender} :</Text>
+            <Text style={styles.message}>{item.message}</Text>
+          </View>
+        )}
+      />
+
+      {/* Chat Input */}
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.input} placeholder="Type a message..." />
+        <TouchableOpacity>
+          <Ionicons name="chatbox-outline" size={24} color="#3D2B2B" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity>
+          <Ionicons name="home-outline" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Ionicons name="location-outline" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Ionicons name="book-outline" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Ionicons name="person-outline" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FBE9D0",
+    paddingTop: 40,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#3D2B2B",
+    marginLeft: 10,
+  },
+  chatRow: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+  },
+  sender: {
+    fontWeight: "bold",
+    color: "#E74C3C",
+    marginRight: 5,
+  },
+  message: {
+    color: "#3D2B2B",
+    flex: 1,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginHorizontal: 20,
+    height: 40,
+    marginBottom: 10,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+  },
+  bottomNav: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#FF5A79",
+    paddingVertical: 12,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+});
+
+export default WomenAtWorkScreen;

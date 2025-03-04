@@ -1,0 +1,100 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+const safetyTopics = [
+  'Safety at Work',
+  'Safety at Home',
+  'Safety at University',
+  'Women Safety Online',
+  'Safety on the Streets',
+];
+
+const SafetyScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Title */}
+      <Text style={styles.title}>Bible of Safety</Text>
+
+      {/* Icon */}
+      <Image source={{ uri: 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png' }} style={styles.icon} />
+
+      {/* Safety Topics Buttons */}
+      {safetyTopics.map((topic, index) => (
+        <TouchableOpacity key={index} style={styles.button}>
+          <Text style={styles.buttonText}>{topic}</Text>
+          <FontAwesome5 name="chevron-right" size={18} color="white" />
+        </TouchableOpacity>
+      ))}
+
+      {/* Bottom Navigation */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="store" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="th-large" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="map" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="book-open" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navButton}>
+          <FontAwesome5 name="user" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FBE9D0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#4A2E2A',
+    marginBottom: 10,
+  },
+  icon: {
+    width: 60,
+    height: 60,
+    marginBottom: 20,
+  },
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#F84F77',
+    width: '80%',
+    padding: 15,
+    borderRadius: 10,
+    marginVertical: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#F84F77',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 15,
+  },
+  navButton: {
+    padding: 10,
+  },
+});
+
+export default SafetyScreen;

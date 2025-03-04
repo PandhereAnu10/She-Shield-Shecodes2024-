@@ -1,0 +1,68 @@
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
+
+const NotificationPopup = ({ visible, onClose }) => {
+  return (
+    <Modal transparent visible={visible} animationType="fade">
+      <View style={styles.overlay}>
+        <View style={styles.popup}>
+          <Text style={styles.message}>Notification Sent!!</Text>
+          <TouchableOpacity style={styles.okButton} onPress={onClose}>
+            <Text style={styles.okText}>Ok</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
+// Main App Component
+const App = () => {
+  const [visible, setVisible] = React.useState(true);
+
+  return (
+    <View style={styles.container}>
+      <NotificationPopup visible={visible} onClose={() => setVisible(false)} />
+    </View>
+  );
+};
+
+// Styles
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.2)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  popup: {
+    backgroundColor: "#FBE9D0",
+    padding: 20,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  message: {
+    fontSize: 16,
+    color: "#3D2B2B",
+    fontWeight: "bold",
+    marginRight: 10,
+  },
+  okButton: {
+    backgroundColor: "#FF5A7D",
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+  },
+  okText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 14,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#FFECD0",
+  },
+});
+
+export default App;
