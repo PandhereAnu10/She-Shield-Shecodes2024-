@@ -1,4 +1,4 @@
-# She-Shield-Shecodes2024-
+# She-Shield-Shecodes2024
 # Women Safety Wearable Band Device
 
 ## Introduction
