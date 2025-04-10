@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "she-shield",
+    "slug": "she-shield",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#3D212B"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sheshield.app",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "686962153219-63lu2mhalo0iv068at3g0db66j21fofk.apps.googleusercontent.com"
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.sheshield.app",
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "sheshield",
+    "extra": {
+      "eas": {
+        "projectId": "686962153219"
+      }
+    }
+  }
+}

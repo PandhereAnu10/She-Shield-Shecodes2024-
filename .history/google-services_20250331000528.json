@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "686962153219",
+    "project_id": "womensafetyapp-47089",
+    "storage_bucket": "womensafetyapp-47089.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686962153219:android:7bbcb24e40251742e03b36",
+        "android_client_info": {
+          "package_name": "com.sheshield.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686962153219-63lu2mhalo0iv068at3g0db66j21fofk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sheshield.app",
+            "certificate_hash": "3b74bd7705cbd334dd0c3a267ac9772f2f63d95f"
+          }
+        },
+        {
+          "client_id": "686962153219-8ikf8ml6cd6qtq9nq2lmvjkv22seqkp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqVe_O68RFxjNOgbame-cZcTH4Y_5FmpU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686962153219-8ikf8ml6cd6qtq9nq2lmvjkv22seqkp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

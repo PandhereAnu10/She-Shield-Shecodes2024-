@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "she-shield",
+    "slug": "she-shield",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#3D212B"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "scheme": "sheshield",
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.sheshield.app",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "INTERNET"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.sheshield.app",
+      "supportsTablet": true
+    },
+    "plugins": [
+      [
+        "expo-auth-session"
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
